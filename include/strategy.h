@@ -1,5 +1,4 @@
 
-
 virtual class Strategy{
   virtual void Fold();
   virtual void Pass();

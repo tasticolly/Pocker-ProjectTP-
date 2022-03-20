@@ -12,8 +12,7 @@ class Card {
   }
   ~Card() = default;
  public:
-  void get_suit();
-  void get_denomination();
-  void get_is_opened();
-
+  Suit get_suit();
+  Denomination get_denomination();
+  bool get_is_opened();
 };

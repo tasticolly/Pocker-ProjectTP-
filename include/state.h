@@ -10,7 +10,6 @@ class State {
   int small_blind;
   std::vector<Player> players;
   std::vector<Combination> combinations;
-
   Combination get_combination(Player play);
 
 };

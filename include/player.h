@@ -1,3 +1,4 @@
+#include<string>
 class Player {
     std::string name;
     Combination c = Combination::FULLHOUSE;
@@ -5,7 +6,7 @@ class Player {
     int stack;
     Card first;
     Card second;
-    Combination count_combination(Combination c) {
-
-    }
+    Strategy strategy;
+    void set_strategy();
+    void get_strategy();
 };

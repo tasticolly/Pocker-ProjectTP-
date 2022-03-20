@@ -1,0 +1,12 @@
+enum class Combination {
+    HIGHCARD,
+    PAIR,
+    TWOPAIRS,
+    THREEOFAKIND,
+    STRAIGHT,
+    FLUSH,
+    FULLHOUSE,
+    FOUROFAKIND,
+    STRAIGHTFLUSH,
+    ROYALFLUSH
+};

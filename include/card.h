@@ -3,15 +3,12 @@
 
 class Card {
  private:
-  Suit card_suit;
-  Denomination card_denomination;
-  bool is_opened;
-  Card() {
-    card_suit = Suit::SPADES;
-    card_denomination = Denomination::QUEEN;
-  }
-  ~Card() = default;
  public:
+  Card();
+  ~Card() = default;
+  Suit card_suit;
+  bool is_opened;
+  Denomination card_denomination;
   Suit get_suit();
   Denomination get_denomination();
   bool get_is_opened();

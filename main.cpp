@@ -20,5 +20,4 @@ int main() {
         players[i].stack = 1000;
     }
 
-    Stage current_stage = Stage::PREFLOP;
 }

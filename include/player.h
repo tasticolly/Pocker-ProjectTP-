@@ -1,5 +1,6 @@
 #include<string>
 class Player {
+ public:
     std::string name;
     Combination c = Combination::FULLHOUSE;
     int bet;

@@ -19,6 +19,7 @@ private:
 	static void splash();
 	static void clearScreen();
 	static void pause();
+	static void dash();
 public:
 	PokerGame();
 	unsigned short getNumOfPlayers() const;

@@ -4,7 +4,7 @@ project(Proj)
 set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB SOURCES
-        *.cpp
+        sources/*.cpp
         )
-
+include_directories(include)
 add_executable(Proj ${SOURCES})

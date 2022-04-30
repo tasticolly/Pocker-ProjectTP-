@@ -9,13 +9,13 @@ Hand::Hand(const vector<Card> &hand) {
 //Count number of faces and suits in the hand
 
 void Hand::countCardProps() {
-    for (unsigned i = 0; i < sizeof(countFaces) / sizeof(countFaces[0]); i++)
+    for (unsigned i = 0; i < sizeof(countFaces) / sizeof(countFaces[0]); ++i)
         countFaces[i] = 0;
-    for (unsigned i = 0; i < sizeof(countSuits) / sizeof(countSuits[0]); i++)
+    for (unsigned i = 0; i < sizeof(countSuits) / sizeof(countSuits[0]); ++i)
         countSuits[i] = 0;
-    for (unsigned i = 0; i < hand.size(); i++) {
-        countFaces[hand[i].getFace() - 1]++;
-        countSuits[hand[i].getSuit() - 1]++;
+    for (unsigned i = 0; i < hand.size(); ++i) {
+        ++countFaces[hand[i].getFace() - 1];
+        ++countSuits[hand[i].getSuit() - 1];
     }
 }
 
@@ -57,9 +57,9 @@ bool operator==(Hand &hand1, Hand &hand2) { return (Hand::determineWinner(hand1,
 //Sort hand by suit
 void Hand::sortBySuit(const bool &asc) {
     unsigned tmp;
-    for (unsigned i = 0; i < getHand().size(); i++) {
+    for (unsigned i = 0; i < getHand().size(); ++i) {
         tmp = i;
-        for (unsigned j = i; j < getHand().size(); j++) {
+        for (unsigned j = i; j < getHand().size(); ++j) {
             if (asc) {
                 if (getHand()[j].getSuit() < getHand()[tmp].getSuit()) tmp = j;
             } else {
@@ -73,9 +73,9 @@ void Hand::sortBySuit(const bool &asc) {
 //Sort hand by face
 void Hand::sortByFace(const bool &asc) {
     unsigned tmp;
-    for (unsigned i = 0; i < getHand().size(); i++) {
+    for (unsigned i = 0; i < getHand().size(); ++i) {
         tmp = i;
-        for (unsigned j = i; j < getHand().size(); j++) {
+        for (unsigned j = i; j < getHand().size(); ++j) {
             if (asc) {
                 if (getHand()[j].getFace() < getHand()[tmp].getFace()) tmp = j;
             } else {
@@ -116,7 +116,7 @@ int Hand::cardsRemaining() {
 //Find if hand has a face match
 bool Hand::hasFaceMatch(const int &num1, const int &num2) {
     bool flag1 = 0, flag2 = 0;
-    for (unsigned i = 0; i < sizeof(countFaces) / sizeof(countFaces[0]); i++) {
+    for (unsigned i = 0; i < sizeof(countFaces) / sizeof(countFaces[0]); ++i) {
         if (countFaces[i] == num1 && !flag1) {
             flag1 = true;
             continue;
@@ -128,7 +128,7 @@ bool Hand::hasFaceMatch(const int &num1, const int &num2) {
 
 //Find if hand has a number of matching suits
 bool Hand::hasSuitMatch(const int &num) {
-    for (unsigned i = 0; i < sizeof(countSuits) / sizeof(countSuits[0]); i++)
+    for (unsigned i = 0; i < sizeof(countSuits) / sizeof(countSuits[0]); ++i)
         if (countSuits[i] == num) return true;
     return false;
 }
@@ -136,8 +136,8 @@ bool Hand::hasSuitMatch(const int &num) {
 //Find if hand has a straight
 bool Hand::hasStraight() {
     unsigned iterator = 0;
-    while (countFaces[iterator] == 0) { iterator++; }
-    for (unsigned i = iterator; i < iterator + 5; i++)
+    while (countFaces[iterator] == 0) { ++iterator; }
+    for (unsigned i = iterator; i < iterator + 5; ++i)
         if (countFaces[i] == 0 || i >= sizeof(countFaces) / sizeof(countFaces[0])) return false;
     return true;
 }
@@ -145,11 +145,11 @@ bool Hand::hasStraight() {
 //Find the highest card value from the hand
 unsigned short Hand::getHighestCard(const short &recur) {
     unsigned short count = 0;
-    for (unsigned short i = 0; i < sizeof(countFaces) / sizeof(countFaces[0]); i++)
-        if (countFaces[i] > 0) count++;
+    for (unsigned short i = 0; i < sizeof(countFaces) / sizeof(countFaces[0]); ++i)
+        if (countFaces[i] > 0) ++count;
     if (count == 0) return 0;
     unsigned short index = (sizeof(countFaces) / sizeof(countFaces[0]) - 1);
-    while (countFaces[index] == 0) { index--; }
+    while (countFaces[index] == 0) { --index; }
     if (recur > 0) {
         countFaces[index] = 0;
         return getHighestCard(recur - 1);
@@ -161,7 +161,7 @@ unsigned short Hand::getHighestCard(const short &recur) {
 //Find the highest combo
 unsigned short Hand::getHighestCombo(const short &recur) {
     unsigned short count = 0;
-    for (unsigned short i = 1; i < sizeof(countFaces) / sizeof(countFaces[0]); i++)
+    for (unsigned short i = 1; i < sizeof(countFaces) / sizeof(countFaces[0]); ++i)
         if (countFaces[i] >= countFaces[count]) count = i;
     if (recur > 0) {
         countFaces[count] = 0;
@@ -264,9 +264,9 @@ string Hand::toSuitSymbol(const Suit &index) {
 //Get a string of drawn cards from the hand
 string Hand::drawHand(const int &faceDown) {
     stringstream str;
-    for (unsigned i = 0; i < 5; i++) {
+    for (unsigned i = 0; i < 5; ++i) {
         int tmp = faceDown;
-        for (unsigned j = 0; j < hand.size(); j++) {
+        for (unsigned j = 0; j < hand.size(); ++j) {
             switch (i) {
                 case 0:
                     str << "┌─────┐";
@@ -294,7 +294,7 @@ string Hand::drawHand(const int &faceDown) {
 //Get a string of cards from the hand
 string Hand::toString() {
     string str = "";
-    for (unsigned i = 0; i < hand.size(); i++)
+    for (unsigned i = 0; i < hand.size(); ++i)
         str += hand[i].toString() + "\n";
     return str;
 }
@@ -315,7 +315,7 @@ int Hand::determineWinner(Hand &hand1, Hand &hand2) {
             case 6:
             case 7:
                 recur = (hand1.evaluate() == 2 ? 2 : hand1.evaluate() == 6 ? 1 : 0);
-                for (int i = 0; i <= recur; i++) {
+                for (int i = 0; i <= recur; ++i) {
                     if (hand1.getHighestCombo(i) > hand2.getHighestCombo(i)) return 1;
                     else if (hand1.getHighestCombo(i) < hand2.getHighestCombo(i)) return -1;
                 }
@@ -330,7 +330,7 @@ int Hand::determineWinner(Hand &hand1, Hand &hand2) {
                     recur = 0;
                     cout << endl;
                     while (hand1.getHighestCard(recur) == hand2.getHighestCard(recur) &&
-                           recur < hand1.cardsRemaining()) { recur++; }
+                           recur < hand1.cardsRemaining()) { ++recur; }
                     if (hand1.getHighestCard(recur) > hand2.getHighestCard(recur)) return 1;
                     else if (hand1.getHighestCard(recur) < hand2.getHighestCard(recur)) return -1;
                 }
@@ -355,7 +355,7 @@ void Hand::winner(Hand &hand1, Hand &hand2) {
             case 6:
             case 7:
                 recur = (hand1.evaluate() == 2 ? 2 : hand1.evaluate() == 6 ? 1 : 0);
-                for (int i = 0; i <= recur; i++) {
+                for (int i = 0; i <= recur; ++i) {
                     if (hand1.getHighestCombo(i) > hand2.getHighestCombo(i)) {
                         cout << "1 wins with " << hand1.printEvaluation() << " and highest card "
                              << hand1.toFaceSymbol(static_cast<Face>(hand1.getHighestCombo(i) + 1));
@@ -385,7 +385,7 @@ void Hand::winner(Hand &hand1, Hand &hand2) {
                     while (hand1.getHighestCard(recur) == hand2.getHighestCard(recur) &&
                            recur < hand1.cardsRemaining()) {
                         //cout << "Recur: " << recur << " : " << hand1.toFaceSymbol(hand1.getHighestCard(recur)+1) << endl;
-                        recur++;
+                        ++recur;
                     }
                     if (hand1.getHighestCard(recur) > hand2.getHighestCard(recur)) {
                         cout << "1 wins with " << hand1.printEvaluation() << " and highest card "

@@ -44,15 +44,15 @@ Hand operator+(Hand &hand1, Hand &hand2) {
     return h1;
 }
 
-bool operator>(Hand &hand1, Hand &hand2) { return (Hand::determineWinner(hand1, hand2) == 1 ? true : false); }
+bool operator>(Hand &hand1, Hand &hand2) { return Hand::determineWinner(hand1, hand2) == 1; }
 
-bool operator<(Hand &hand1, Hand &hand2) { return (Hand::determineWinner(hand1, hand2) == -1 ? true : false); }
+bool operator<(Hand &hand1, Hand &hand2) { return Hand::determineWinner(hand1, hand2) == -1; }
 
-bool operator>=(Hand &hand1, Hand &hand2) { return (Hand::determineWinner(hand1, hand2) >= 0 ? true : false); }
+bool operator>=(Hand &hand1, Hand &hand2) { return Hand::determineWinner(hand1, hand2) >= 0; }
 
-bool operator<=(Hand &hand1, Hand &hand2) { return (Hand::determineWinner(hand1, hand2) <= 0 ? true : false); }
+bool operator<=(Hand &hand1, Hand &hand2) { return Hand::determineWinner(hand1, hand2) <= 0; }
 
-bool operator==(Hand &hand1, Hand &hand2) { return (Hand::determineWinner(hand1, hand2) == 0 ? true : false); }
+bool operator==(Hand &hand1, Hand &hand2) { return Hand::determineWinner(hand1, hand2) == 0; }
 
 //Sort hand by suit
 void Hand::sortBySuit(const bool &asc) {

@@ -13,8 +13,8 @@ void Hand::countCardProps(){
 	for(unsigned i = 0; i < sizeof(countSuits)/sizeof(countSuits[0]); i++)
 		countSuits[i] = 0;
 	for(unsigned i = 0; i < hand.size(); i++){
-		countFaces[hand.at(i).getFace()-1]++;
-		countSuits[hand.at(i).getSuit()-1]++;
+		countFaces[hand[i].getFace()-1]++;
+		countSuits[hand[i].getSuit()-1]++;
 	}
 }
 

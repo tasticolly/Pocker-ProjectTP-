@@ -12,8 +12,8 @@ Deck::Deck(const vector<Card>& deck) {
 
 void Deck::initDeck(){
 	vector<Card> newDeck;
-	for(int i = TWO; i != ACE; ++i)
-		for(int j = HEARTS; j!=CLUBS; ++j)
+	for(int i = TWO; i != ACE + 1; ++i)
+		for(int j = HEARTS; j!=CLUBS + 1; ++j)
 			newDeck.emplace_back(static_cast<Suit>(j),static_cast<Face>(i));
 	setDeck(newDeck);
 }

@@ -24,7 +24,7 @@ public:
 	int cardsRemaining();
 	vector<Card> dealHand(const int& size);
 	Card drawCard(const unsigned& index = 0);
-	void addCard(Card card);
+	void addCard(const Card& card);
 	string toString();
 	virtual ~Deck();
 };

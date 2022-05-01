@@ -24,10 +24,14 @@
 
 ### Installation:
 
-* > $ git clone git@github.com:tasticolly/Pocker-ProjectTP-.git
-* > $ cmake -B build
-* > $ cmake --build build
+> $ git clone git@github.com:tasticolly/Pocker-ProjectTP-.git
+
+
+> $ cmake -B build
+
+
+> $ cmake --build build
 
 ### Run:
 
-* > $ ./build/Proj
+> $ ./build/Proj

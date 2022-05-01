@@ -104,7 +104,9 @@ void PokerGame::classicGameLoop(int turns) {
             int discard;
             cout << playerHands[j].getOwnerName() << "'s hand: (" << playerHands[j].printEvaluation() << ")\n\n";
             cout << playerHands[j].drawHand();
-            for (int k = 0; k < playerHands[j].cardsRemaining(); ++k) cout << "╚═ " << k + 1 << " ═╝";
+            for (int k = 0; k < playerHands[j].cardsRemaining(); ++k) {
+                cout << "╚═ " << k + 1 << " ═╝";
+            }
             cout << '\n';
             cout << "\nInput number of cards to discard (up to three): ";
             cin >> discard;

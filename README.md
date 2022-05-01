@@ -26,9 +26,7 @@
 
 > $ git clone git@github.com:tasticolly/Pocker-ProjectTP-.git
 
-
 > $ cmake -B build
-
 
 > $ cmake --build build
 

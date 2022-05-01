@@ -23,10 +23,10 @@ private:
 public:
 	PokerGame();
 	unsigned short getNumOfPlayers() const;
-	void setNumOfPlayers(unsigned short numOfPlayers);
 	unsigned short getGameType() const;
-	void setGameType(unsigned short gameType);
 	const vector<Hand>& getPlayerHands() const;
+	void setNumOfPlayers(unsigned short numOfPlayers);
+	void setGameType(unsigned short gameType);
 	void setPlayerHands(const vector<Hand>& playerHands);
 	void discardFromHand(Hand& hand, int discard);
 	void beginGame();

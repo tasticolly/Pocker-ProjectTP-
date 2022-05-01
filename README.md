@@ -1,32 +1,33 @@
-# Pocker-ProjectTP-
+# Poker
 
-Pocker-ProjectTP-
- Игра «Покер»
- 
-
- Структура
+### Structure of the game:
  
 
- Имеется карточный стол. Игра ведется в Безлимитный Техасский Холдем, идет турнир. 
- Перед началом партии игроки регистрируются.
+ * There is a card tableю Player is up to choose one of the 2 modes of poker to play: [**Classical Poker**](https://en.wikipedia.org/wiki/Draw_poker) and  [**No Limit Texas Holdem**](https://en.wikipedia.org/wiki/Texas_hold_%27em).
+ In the beginning of the game, players register by entering their names.
  
-
- Детали реализации
+### Details of realization:
  
-
- У всех игроков изначально равное количество денег, 100 условных единиц. В начале игры игрокам случайным образом раздаются по 2 карты. 
- У каждой карты есть индивидуальные номинал и масть. Пользователи по очереди ходят (делают ставки, повышают/уравнивают/сбрасывают), 
- сменяются стадии игры (префлоп, флоп, терн, ривер). Перед ходом каждого следующего игрока скрываются данные прошлого, 
- предлагаются варианты действий.
+ * All players initially have the same amount of money, 100 conventional units. At the beginning of the game, players are randomly dealt 2 cards.
+ Each card has its own value and suit. Users take turns: _raising/calling/folding_,
+ while game stages consequently change in the following order: _preflop, flop, turn, river_. Before the move of next player, other players' moves are hidden, current best combination for this player is shown.
  
- В конце раунда, исходя из карт на столе и на руках у оставшихся игроков, определяется победитель, который забирает банк. 
- Игроки, у которых не осталось денег, выбывают, после чего начинается новый раунд. 
- Игра ведется до тех пор, пока не останется один победитель.
+ * At the end of the round, based on the cards on the table and in the hands of the remaining players, the winner is determined who takes all the pot.
+ Players with no money left are eliminated and new round begins.
+ The game is played until there is only **one winner** left.
  
-
- Полезные паттерны и хинты
- 
+### Useful patterns and hints used:
 
  1. Observer
- 2. Command - действия игрока
- Мы старались максимально соответствовать принципам Solid.
+ 2. Command - players' actions
+ We tried our best to comply with the **Solid principles**.
+
+### Installation:
+
+> $ git clone git@github.com:tasticolly/Pocker-ProjectTP-.git
+> $ cmake -B build
+> $ cmake --build build
+
+### Run:
+
+> $ ./build/Proj

@@ -22,7 +22,7 @@
  2. Command - players' actions
 
 
- We tried our best to comply with the **Solid principles**.
+ We tried our best to comply with the **SOLID principles**.
 
 ### Installation:
 

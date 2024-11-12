@@ -1,32 +1,29 @@
-# Pocker-ProjectTP-
+# Texas Hold'em Poker Tournament
 
-Pocker-ProjectTP-
- Игра «Покер»
- 
+This project implements a Texas Hold'em poker tournament simulation.
 
- Структура
- 
+## Game Structure
 
- Имеется карточный стол. Игра ведется в Безлимитный Техасский Холдем, идет турнир. 
- Перед началом партии игроки регистрируются.
- 
+The game follows the rules of No-Limit Texas Hold'em, played as a tournament at a virtual poker table.  Players register before the tournament begins.
 
- Детали реализации
- 
+## Implementation Details
 
- У всех игроков изначально равное количество денег, 100 условных единиц. В начале игры игрокам случайным образом раздаются по 2 карты. 
- У каждой карты есть индивидуальные номинал и масть. Пользователи по очереди ходят (делают ставки, повышают/уравнивают/сбрасывают), 
- сменяются стадии игры (префлоп, флоп, терн, ривер). Перед ходом каждого следующего игрока скрываются данные прошлого, 
- предлагаются варианты действий.
- 
- В конце раунда, исходя из карт на столе и на руках у оставшихся игроков, определяется победитель, который забирает банк. 
- Игроки, у которых не осталось денег, выбывают, после чего начинается новый раунд. 
- Игра ведется до тех пор, пока не останется один победитель.
- 
+Each player starts with an equal amount of virtual currency (100 units).  At the beginning of each hand, players are randomly dealt two private cards. Each card has a specific rank and suit.
 
- Полезные паттерны и хинты
- 
+Players take turns acting (betting, raising, calling, or folding) in a clockwise order. The game progresses through the standard stages: pre-flop, flop, turn, and river. Before each player's turn, the previous player's action is concealed, and the current player is presented with available options.
 
- 1. Observer
- 2. Command - действия игрока
- Мы старались максимально соответствовать принципам Solid.
+At the end of each hand, the winner is determined based on the best five-card poker hand formed using their private cards and the community cards on the table. The winner collects the pot. Players who run out of money are eliminated from the tournament. A new hand begins immediately after the previous one concludes.
+
+The tournament continues until only one player remains, who is declared the winner.
+
+## Design Patterns and Principles
+
+The implementation leverages the following design patterns and principles:
+
+1. **Observer Pattern:** Used for efficient notification and update mechanisms within the game.
+2. **Command Pattern:**  Employed to represent and manage player actions (betting, raising, calling, folding).
+
+The project adheres to SOLID principles to ensure maintainability and flexibility.
+
+
+[UML Diagram](ATP_POCKER.pdf)
